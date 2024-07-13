@@ -1,13 +1,12 @@
-const carsMaker: string[] = ['mercedes', 'maruti', 'tata'];
-// const dates: string[][] = [];
-// const dates: Date[][] = [[new Date(), new Date()]];
+const carMakers: string[] = ["tata", "maruti", "hyundai"];
 
-const carsByMaker: string[][] = [['benz', 'desire', 'punchEV']];
+const car = carMakers.pop();
 
-const car = carsMaker[0];
-const carLast = carsMaker.pop();
-
-// Inference for map function
-carsMaker.map((car: string): string => {
-  return car;
+carMakers.map((car: string): string => {
+  return car.toUpperCase();
 });
+
+// Flexible array types
+const flexibleArrays: (string | Date)[] = [new Date(), "2024-10-10"];
+
+flexibleArrays.push("cat");
