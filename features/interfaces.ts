@@ -1,26 +1,28 @@
-interface Vehicle {
-  name: string;
-  year: number;
-  isBroken: boolean;
+interface Printable {
+  summary(): string;
 }
 
 const oldCivic = {
-  name: "Civic",
+  carName: 'Civic',
   year: 2000,
   isBroken: false,
+  summary(): string {
+    return `Name: ${this.carName}`;
+  },
 };
 
-const newMaruti = {
-  name: "Maruti",
-  year: 2021,
-  isBroken: false,
+const drink = {
+  color: 'brown',
+  carbonated: true,
+  sugar: 40,
+  summary(): string {
+    return `My ${this.color} color drink has ${this.sugar} grams of sugar`;
+  },
 };
 
-const printVehicle = (vehicle: Vehicle): void => {
-  console.log(`Name: ${vehicle.name}`);
-  console.log(`Year: ${vehicle.year}`);
-  console.log(`Broken: ${vehicle.isBroken}`);
+const printSummary = (vehicle: Printable): void => {
+  console.log(vehicle.summary());
 };
 
-printVehicle(oldCivic);
-printVehicle(newMaruti);
+printSummary(oldCivic);
+printSummary(drink);
