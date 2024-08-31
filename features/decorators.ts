@@ -6,7 +6,7 @@ class Boat {
   }
 
   // Use decorators to change, modify any property or method of a targeted class
-  @logError
+  @logError('Something went wrong!')
   pilot(): void {
     throw new Error();
     console.log('Swish');
@@ -14,15 +14,17 @@ class Boat {
 }
 
 // Decorators
-function logError(target: any, key: any, desc: PropertyDescriptor): void {
-  const method = desc.value;
+function logError(message: string) {
+  return function (target: any, key: any, desc: PropertyDescriptor): void {
+    const method = desc.value;
 
-  desc.value = () => {
-    try {
-      method();
-    } catch (err) {
-      console.log('ERROR FOUND!');
-    }
+    desc.value = () => {
+      try {
+        method();
+      } catch (err) {
+        console.log(message);
+      }
+    };
   };
 }
 
