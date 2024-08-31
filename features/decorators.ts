@@ -1,4 +1,5 @@
 class Boat {
+  @testDecorator
   color: string = 'red';
 
   get formattedColor(): string {
@@ -28,4 +29,10 @@ function logError(message: string) {
   };
 }
 
-new Boat().pilot();
+/**
+ * We can't access property of class, because decorators invoke before making
+ * an instance of class and we can not access */
+function testDecorator(target: any, key: any): void {
+  console.log(target[key]); // undefined
+  console.log(target.color); // undefined
+}
