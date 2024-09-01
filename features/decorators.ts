@@ -1,4 +1,5 @@
 /**
+ * Use decorators to change, modify any property or method of a targeted class
  * We can also use decorator for the static methods and static properties as well
  */
 @classDecorator
@@ -32,6 +33,8 @@ class Boat {
 /**
  * Decorator factory function to customize arguments value
  * @param message argument for decorator factory function which return the decorator function
+ * @param desc { value: body of method, enumerable: boolean, editable:
+ * boolean, configurable: boolean 'able to delete' }
  * @returns decorator function
  */
 function logError(message: string) {
